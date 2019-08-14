@@ -1,8 +1,11 @@
 package com.gmail.sergeykichukki4;
 
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-
+import java.util.stream.Stream;
 
 public class StreamOperations {
     public StreamOperations() {
@@ -30,5 +33,23 @@ public class StreamOperations {
 
     public IntStream multiplyAllElements(int[] array, int number) {
         return IntStream.of(array).map(arr -> arr * number);
+    }
+
+    public String anOddsIndicatedAndPlusNumber(List<String> list) {
+        String returnedString = "";
+        return returnedString;
+    }
+
+    public List<String> mapToUppercaseAndThenSortDescending(List<String> list) {
+        List<String> namesToUppercaselistPlusNaturalOrder = list.stream().sorted()
+                .map(String::toUpperCase)
+                .collect(Collectors.toList());
+        return namesToUppercaselistPlusNaturalOrder;
+    }
+
+    public List<Integer> getAllNumbersListedSeparatedByCommasFromAllTheElements(Collection<String> list) {
+        List<Integer> returnedList = list.stream().flatMapToInt((p) -> Arrays.asList(p.split(",")).stream().mapToInt(Integer::parseInt)).boxed().collect(Collectors.toList());
+
+        return returnedList;
     }
 }

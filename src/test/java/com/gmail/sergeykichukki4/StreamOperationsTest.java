@@ -3,8 +3,8 @@ package com.gmail.sergeykichukki4;
 import org.junit.Assert;
 import org.junit.Test;
 
-//import java.util.Arrays;
-//import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -13,7 +13,9 @@ import java.util.stream.IntStream;
 public class StreamOperationsTest {
 
     int[] arrTest = {1, 2, 31, 17, 2, 7, 9};
-    int[] arrTestForMultiplyAllElementsFunction = {10, 20, 310, 170, 20, 70, 90};
+    //int[] arrTestForMultiplyAllElementsFunction = {10, 20, 310, 170, 20, 70, 90};
+    List<String> operatingList = Arrays.asList("Ivan", "Fedor", "Peter", "Natasha", "Sergei");
+    Collection<String> secondOperatingList = Arrays.asList("1, 2, 0", "4, 5");
     StreamOperations streamOperations = new StreamOperations();
 
     @Test
@@ -33,7 +35,7 @@ public class StreamOperationsTest {
     }
 
     @Test
-    public void minIdex() {
+    public void minIndex() {
         int actual = streamOperations.minIdex(arrTest);
         int expected = 0;
 
@@ -68,5 +70,29 @@ public class StreamOperationsTest {
         }*/
 
         Assert.assertEquals(adoptedExpected, actual);
+    }
+
+    @Test
+    public void anOddsIndicatedAndPlusNumber() {
+        String actual = streamOperations.anOddsIndicatedAndPlusNumber(operatingList);
+        String expected = "1. Ivan, 3. Peter, 5. Sergei ";
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void mapToUpperacaseAndThenSortDescending() {
+        List<String> actual = streamOperations.mapToUppercaseAndThenSortDescending(operatingList);
+        List<String> expected = Arrays.asList("FEDOR", "IVAN", "NATASHA", "PETER", "SERGEI");
+
+        Assert.assertEquals(expected, actual);
+    }
+
+    @Test
+    public void getAllNumbersListedSeparatedByCommasFromAllTheElemnts() {
+        List<Integer> actual = streamOperations.getAllNumbersListedSeparatedByCommasFromAllTheElements(secondOperatingList);
+        List<Integer> expected = Arrays.asList(1, 2, 0, 4, 5);
+
+        Assert.assertEquals(expected, actual);
     }
 }
