@@ -3,6 +3,8 @@ package com.gmail.sergeykichukki4;
 import org.junit.Assert;
 import org.junit.Test;
 
+import java.lang.reflect.Array;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
@@ -36,7 +38,7 @@ public class StreamOperationsTest {
 
     @Test
     public void minIndex() {
-        int actual = streamOperations.minIdex(arrTest);
+        int actual = streamOperations.minIndex(arrTest);
         int expected = 0;
 
         Assert.assertEquals(actual, expected);
@@ -75,7 +77,7 @@ public class StreamOperationsTest {
     @Test
     public void anOddsIndicatedAndPlusNumber() {
         String actual = streamOperations.anOddsIndicatedAndPlusNumber(operatingList);
-        String expected = "1. Ivan, 3. Peter, 5. Sergei ";
+        String expected = "1. Ivan, 3. Peter, 5. Sergei";
 
         Assert.assertEquals(expected, actual);
     }
@@ -89,10 +91,9 @@ public class StreamOperationsTest {
     }
 
     @Test
-    public void getAllNumbersListedSeparatedByCommasFromAllTheElemnts() {
-        List<Integer> actual = streamOperations.getAllNumbersListedSeparatedByCommasFromAllTheElements(secondOperatingList);
+    public void getAllNumbersListedSeparatedByCommasFromAllTheElements() {
+        List<Integer> actual = streamOperations.ArraygetAllNumbersListedSeparatedByCommasFromAllTheElements(secondOperatingList);
         List<Integer> expected = Arrays.asList(1, 2, 0, 4, 5);
-
         Assert.assertEquals(expected, actual);
     }
 }
